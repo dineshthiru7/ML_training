@@ -319,7 +319,7 @@ axis=0 (collapse rows):          axis=1 (collapse columns):
 ### What is it?
 Computes the **arithmetic mean** (average) of array elements.
 
-$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
+`x̄ = (1/n) × Σ xᵢ`
 ### What Does it Output?
 ```python
 import numpy as np
@@ -357,7 +357,7 @@ print(np.median(mat, axis=1))     # [2.  5. ]     ← per row
 ### What is it?
 Standard deviation — measures **spread** (how far values are from the mean).
 
-$$\sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
+`σ = √( (1/n) × Σ(xᵢ - x̄)² )`
 
 Small std = values clustered tightly. Large std = values spread out.
 
@@ -377,7 +377,7 @@ print(np.std(mat, axis=1))   # std of each row
 ### What is it?
 Variance = std² — measures spread without the square root.
 
-$$\sigma^2 = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})^2$$
+`σ² = (1/n) × Σ(xᵢ - x̄)²`
 
 ```python
 arr = np.array([2, 4, 4, 4, 5, 5, 7, 9])

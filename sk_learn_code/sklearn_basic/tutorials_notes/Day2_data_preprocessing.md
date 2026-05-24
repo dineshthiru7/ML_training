@@ -464,11 +464,11 @@ For each column separately:
 
 1. Computes the **mean** (μ):
 
-$$\mu = \frac{1}{n} \sum_{i=1}^{n} x_i$$
+`μ = (1/n) × Σ xᵢ`
 
 2. Computes the **standard deviation** (σ):
 
-$$\sigma = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (x_i - \mu)^2}$$
+`σ = √( (1/n) × Σ(xᵢ - μ)² )`
 
 3. Stores μ and σ in `scaler.mean_` and `scaler.scale_`
 
@@ -482,7 +482,7 @@ scaler.scale_ = [8.81,  33000]
 ### transform(X):
 For every value in every column, applies:
 
-$$z = \frac{x - \mu}{\sigma}$$
+`z = (x - μ) / σ`
 
 ```
 Age 25:    z = (25 - 30.5) / 8.81  = -0.624
@@ -595,7 +595,7 @@ scaler.data_max_ = [500.]
 ### transform(X):
 For every value applies:
 
-$$x_{\text{scaled}} = \frac{x - x_{\min}}{x_{\max} - x_{\min}}$$
+`x_scaled = (x - x_min) / (x_max - x_min)`
 
 ```
 100 → (100 - 100) / (500 - 100) = 0.0
@@ -617,7 +617,7 @@ scaler = MinMaxScaler(feature_range=(0, 255))
 
 Formula with custom range $(a, b)$:
 
-$$x_{\text{scaled}} = a + \frac{(x - x_{\min})(b - a)}{x_{\max} - x_{\min}}$$
+`x_scaled = a + ( (x - x_min) × (b - a) ) / (x_max - x_min)`
 
 ## What Does it Output?
 ```python

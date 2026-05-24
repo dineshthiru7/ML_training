@@ -183,7 +183,7 @@ Matrix multiplication: multiply rows of the first matrix by columns of the secon
 
 For matrices $A$ (m×n) and $B$ (n×p):
 
-$$C_{ij} = \sum_{k=1}^{n} A_{ik} \cdot B_{kj}$$
+`Cᵢⱼ = Σₖ Aᵢₖ × Bₖⱼ`
 
 Result shape: (m×p)
 ### What Does it Output?
@@ -255,7 +255,7 @@ If det ≠ 0 → matrix is **invertible**.
 
 For 2×2:
 
-$$\det\begin{pmatrix}a & b \\ c & d\end{pmatrix} = ad - bc$$
+`det([[a, b], [c, d]]) = ad - bc`
 ### What Does it Output?
 ```python
 import numpy as np
@@ -273,7 +273,7 @@ print(np.linalg.det(B))     # 2*2 - 4*1 = 0.0  ← singular!
 ### What is it?
 For a square matrix $A$, eigenvectors $\mathbf{v}$ and eigenvalues $\lambda$ satisfy:
 
-$$A\mathbf{v} = \lambda\mathbf{v}$$
+`A × v = λ × v`
 
 The eigenvector does not change direction when multiplied by the matrix — it only scales.
 The eigenvalue is the scale factor.
@@ -312,8 +312,8 @@ Mathematically: $x = A^{-1}b$
 But `solve()` is faster and more numerically stable than computing the inverse.
 ### Example
 System of equations:
-$$2x + y = 8$$
-$$x + 3y = 11$$
+`2x + y = 8`
+`x + 3y = 11`
 
 ```python
 import numpy as np

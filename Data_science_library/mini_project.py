@@ -7,7 +7,7 @@ data1=np.random.randint(60,101,size=(40,5))
 data2=np.random.randint(1,44,size=(30,5))
 data3=np.random.randint(44,60,size=(30,5))
 data=np.vstack((data1,data2,data3))
-#print("data : ",data)
+print("data : ",data)
 
 ##Apply grace marks to all students pass mark is 45 and grace 
 grace_boolean=((data > 42 ) & (data < 45))

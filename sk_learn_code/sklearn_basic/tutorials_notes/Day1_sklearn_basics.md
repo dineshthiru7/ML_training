@@ -112,7 +112,7 @@ y_train shape: (800,)     → 800 correct price values
 For Linear Regression, sklearn does NOT use slow trial-and-error.
 It uses a direct mathematical formula called **Ordinary Least Squares (OLS)**:
 
-$$W = (X^T X)^{-1} X^T y$$
+`W = (XᵀX)⁻¹ Xᵀy`
 
 - $X^T$ = transpose of input matrix
 - $(X^T X)^{-1}$ = matrix inverse
@@ -132,7 +132,7 @@ model.intercept_ → 10000.0
 
 This means internally the model learned:
 
-$$\text{price} = 50000 \times \text{bedrooms} + 30000 \times \text{bathrooms} + 120 \times \text{sqft} + 10000$$
+`price = 50000 × bedrooms + 30000 × bathrooms + 120 × sqft + 10000`
 ### Step 5 — fit() returns the model object itself
 `fit()` returns `self` — which means the model object with updated weights.
 You can chain it: `model.fit(X_train, y_train).predict(X_test)`
@@ -154,7 +154,7 @@ You call `predict()` separately to get predictions.
 The goal of `fit()` is to find weights that minimize prediction error.
 For Linear Regression, the error measure is **Mean Squared Error (MSE)**:
 
-$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
+`MSE = (1/n) × Σ(yᵢ - ŷᵢ)²`
 
 - $y_i$ = actual price of house $i$
 - $\hat{y}_i$ = predicted price of house $i$
@@ -256,16 +256,16 @@ intercept_ = 10000.0
 ### Step 3 — It runs matrix multiplication for every row
 For each row in X_test, it computes:
 
-$$\hat{y}_i = w_1 \cdot x_1 + w_2 \cdot x_2 + w_3 \cdot x_3 + b$$
+`ŷᵢ = w₁x₁ + w₂x₂ + w₃x₃ + b`
 
 Example for house: bedrooms=3, bathrooms=2, sqft=1600
 
-$$\hat{y} = 50000 \times 3 + 30000 \times 2 + 120 \times 1600 + 10000$$
-$$= 150000 + 60000 + 192000 + 10000 = 412000$$
+`ŷ = 50000×3 + 30000×2 + 120×1600 + 10000`
+`  = 150000 + 60000 + 192000 + 10000 = 412000`
 
 In matrix form for all rows at once:
 
-$$\hat{Y} = X_{\text{test}} \cdot W^T + b$$
+`Ŷ = X_test × Wᵀ + b`
 ### Step 4 — Returns array of predictions
 One predicted value per row.
 
@@ -352,7 +352,7 @@ y_test      = [400000, 510000, 190000, ...]
 y_predicted = [412000, 520000, 180000, ...]
 ```
 ### Step 3 — For Regression: Calculates R² Score
-$$R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}$$
+`R² = 1 - Σ(yᵢ - ŷᵢ)² / Σ(yᵢ - ȳ)²`
 
 Breaking it down:
 
@@ -365,7 +365,7 @@ Breaking it down:
 - If your model is no better than predicting the mean every time → R² = 0.0
 - If your model is worse than predicting the mean → R² is negative
 ### Step 3 — For Classification: Calculates Accuracy
-$$\text{Accuracy} = \frac{\text{Number of rows where } \hat{y}_i = y_i}{\text{Total number of rows}}$$
+`Accuracy = (rows where ŷᵢ = yᵢ) / (total rows)`
 ### Step 4 — Returns a single float
 ## What Does score() Output?
 ```python

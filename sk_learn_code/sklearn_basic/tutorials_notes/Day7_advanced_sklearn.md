@@ -490,23 +490,23 @@ X_reduced = pca.fit_transform(X)
 
 ## What Happens Inside — Step by Step
 ### Step 1 — Center the data
-$$X_{\text{centered}} = X - \bar{X}$$
+`X_centered = X - X̄`
 
 Subtract the mean of each feature so the data is centered at the origin.
 ### Step 2 — Compute the Covariance Matrix
-$$C = \frac{1}{n-1} X_{\text{centered}}^T X_{\text{centered}}$$
+`C = (1/(n-1)) × X_centeredᵀ × X_centered`
 
 This matrix captures how much pairs of features vary together.
 ### Step 3 — Find Eigenvectors and Eigenvalues
 Solve:
 
-$$C \mathbf{v} = \lambda \mathbf{v}$$
+`C × v = λ × v`
 
 - Each **eigenvector** ($\mathbf{v}$) is a direction in feature space
 - Each **eigenvalue** ($\lambda$) tells how much variance lies in that direction
 - Sort by eigenvalue descending → principal components in order of importance
 ### Step 4 — Project data onto top K eigenvectors
-$$X_{\text{reduced}} = X_{\text{centered}} \cdot V_k$$
+`X_reduced = X_centered × Vₖ`
 
 Where $V_k$ is the matrix of the top K eigenvectors.
 ### Example
@@ -646,13 +646,13 @@ centers = kmeans.cluster_centers_  # center of each cluster
 
 **Step 2 — Assign:** For each data point, find the nearest centroid using Euclidean distance:
 
-$$d(x, c) = \sqrt{\sum_{j=1}^{p} (x_j - c_j)^2}$$
+`d(x, c) = √( Σ(xⱼ - cⱼ)² )`
 
 Assign the point to that centroid's cluster.
 
 **Step 3 — Update:** Move each centroid to the **mean position** of all points assigned to it:
 
-$$c_k = \frac{1}{|C_k|} \sum_{x \in C_k} x$$
+`cₖ = (1/|Cₖ|) × Σ x   (mean of all points in cluster k)`
 
 **Step 4 — Repeat:** Go back to Step 2. Continue until centroids stop moving (convergence).
 ### Visual walkthrough
@@ -675,7 +675,7 @@ Final clusters: 3 groups
 
 KMeans minimizes the **Within-Cluster Sum of Squares (WCSS)**:
 
-$$\text{WCSS} = \sum_{k=1}^{K} \sum_{x \in C_k} \|x - c_k\|^2$$
+`WCSS = Σₖ Σ(x ∈ Cₖ) ||x - cₖ||²`
 
 ## What Does it Output?
 ```python

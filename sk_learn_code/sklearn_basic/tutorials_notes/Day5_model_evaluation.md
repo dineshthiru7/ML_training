@@ -29,7 +29,7 @@ MAE measures the **average size of prediction errors**, ignoring direction (posi
 It answers: "On average, how far off is the model's prediction from the actual value?"
 
 ## Formula
-$$\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|$$
+`MAE = (1/n) × Σ |yᵢ - ŷᵢ|`
 
 - $y_i$ = actual value
 - $\hat{y}_i$ = predicted value
@@ -83,7 +83,7 @@ Squaring does two things:
 2. Penalizes large errors much more heavily than small ones
 
 ## Formula
-$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
+`MSE = (1/n) × Σ(yᵢ - ŷᵢ)²`
 
 ## Step-by-Step Calculation
 ```
@@ -127,7 +127,7 @@ RMSE is simply the **square root of MSE**.
 It fixes the unit problem — RMSE is in the same units as the target variable.
 
 ## Formula
-$$\text{RMSE} = \sqrt{\text{MSE}} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$$
+`RMSE = √MSE = √( (1/n) × Σ(yᵢ - ŷᵢ)² )`
 
 ## Step-by-Step Calculation
 ```
@@ -169,13 +169,13 @@ It compares your model's errors to a "dumb baseline" that always predicts the me
 A perfect model has R²=1. A model equal to the baseline has R²=0.
 
 ## Formula
-$$R^2 = 1 - \frac{\text{SS}_{\text{res}}}{\text{SS}_{\text{tot}}}$$
+`R² = 1 - (SS_res / SS_tot)`
 
 Where:
 
-$$\text{SS}_{\text{res}} = \sum (y_i - \hat{y}_i)^2 \quad \text{(your model's total squared error)}$$
+`SS_res = Σ(yᵢ - ŷᵢ)²    (your model's total squared error)`
 
-$$\text{SS}_{\text{tot}} = \sum (y_i - \bar{y})^2 \quad \text{(total variation in y)}$$
+`SS_tot = Σ(yᵢ - ȳ)²    (total variation in y)`
 
 ## Step-by-Step Calculation
 ```
@@ -271,7 +271,7 @@ ACTUAL Positive |    TP    |    FN   |
 ## What is it?
 Accuracy = fraction of **all predictions that are correct** (both TP and TN).
 ## Formula
-$$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$$
+`Accuracy = (TP + TN) / (TP + TN + FP + FN)`
 ## Step-by-Step
 ```
 TP=50, TN=30, FP=10, FN=10  (total=100)
@@ -303,7 +303,7 @@ Precision = of all cases the model **predicted as positive**, how many were actu
 
 It answers: "When the model says YES, how often is it right?"
 ## Formula
-$$\text{Precision} = \frac{TP}{TP + FP}$$
+`Precision = TP / (TP + FP)`
 ## Step-by-Step
 ```
 Model predicted "cancer" for 60 patients.
@@ -335,7 +335,7 @@ Recall = of all cases that were **actually positive**, how many did the model ca
 It answers: "Out of all real positives, how many did the model find?"
 Also called **Sensitivity** or **True Positive Rate**.
 ## Formula
-$$\text{Recall} = \frac{TP}{TP + FN}$$
+`Recall = TP / (TP + FN)`
 ## Step-by-Step
 ```
 100 patients actually have cancer.
@@ -385,7 +385,7 @@ F1 Score is the **harmonic mean** of Precision and Recall.
 
 It gives a single balanced number when both precision and recall matter.
 ## Formula
-$$\text{F1} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+`F1 = 2 × (Precision × Recall) / (Precision + Recall)`
 ## Why Harmonic Mean and Not Regular Average?
 Regular average can be misleading:
 ```
